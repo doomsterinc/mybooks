@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="mbdApp">
+<head>
+    <meta charset="UTF-8">
+    <title>My Books Directory</title>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+<body ng-controller="mbdController">
+    <main class="container">
+        <header>
+            <h1>Welcome to My Books Directory</h1>
+            <nav>
+                <label>Search:</label>
+                <input ng-model="query" placeholder="Search for Books" autofocus>
+            </nav>
+        </header>
+        <section>
+            <ul>
+                <li ng-repeat="book in books | orderBy: 'name' | filter: query">
+                    <p>{{book.name}}</p>
+                    <p>{{book.author}}</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>{{author.name}} |
+        <i>{{author.title}}</i> |
+        <a href="{{author.website}}" target="_blank" title="Doom Blog">DoomBlog</a></p>
+    </footer>
+</body>
+</html>
