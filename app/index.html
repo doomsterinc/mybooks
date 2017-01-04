@@ -16,21 +16,21 @@
     <script src="lib/jquery/jquery.min.js"></script>
 
 </head>
-<body class="container" ng-controller="mbdController">
+<body class="container-fluid" ng-controller="mbdController">
     <main>
         <header>
-            <h1>Welcome to My Books Directory</h1>
-            <nav>
+            <h1 class="page-header">Welcome to My Books Directory</h1>
+            <nav class="navbar">
                 <input class="form-control" ng-model="query" placeholder="Search for Books" autofocus>
             </nav>
         </header>
-        <section class="jumbotron">
-            <ul>
-                <li ng-repeat="book in books | orderBy: 'name' | filter: query">
-                    <p>{{book.name}}</p>
-                    <p>{{book.author}}</p>
-                </li>
-            </ul>
+        <section class="jumbotron ">
+                <ul>
+                    <li ng-repeat="book in books | orderBy: 'name' | filter: query">
+                        <p>{{book.name}}</p>
+                        <p>{{book.author}}</p>
+                    </li>
+                </ul>
         </section>
     </main>
     <footer>
